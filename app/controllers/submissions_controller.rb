@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
 		s.identifier = params[:submission][:identifier]
 		s.name = params[:submission][:name]
 		s.save
-		redirect_to submissions_path
+		redirect_to new_submission_path
 	end
 
 	def index
