@@ -1,7 +1,17 @@
-<h1>Text the app number to (415) 529-7288 to vote!</h1>
+<h1>Text the app number to (646) 760-6352!</h1>
 
 <div id="submissions">
-<% @submissions.each do |s| %>
-	<%= s.identifier %> : <%= s.name %><br>
-<% end %>
+	<table>
+		<% @submissions.each do |s| %>
+			<% if s.id % 2 == 1%>
+			  <tr>
+			<%end%>
+			<td>
+				<%= s.identifier %> : <%= s.name %><br>
+			</td>
+			<% if s.id % 2 == 0 %>
+			  </tr>
+			<%end%>
+		<% end %>
+	</table>
 </div>

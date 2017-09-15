@@ -2,8 +2,8 @@ class VotesController < ApplicationController
 	skip_before_action :verify_authenticity_token, only: [:create]
 
 	def create
-		pick = params["message"]
-		from = params["from"]["endpoint"]
+		pick = params["Body"]
+		from = params["From"]
 
 		submission_exists = Submission.where(identifier: pick).length > 0
 
@@ -34,7 +34,7 @@ class VotesController < ApplicationController
 			submission = Submission.where(:identifier => v.pick).first.name
 			if votes_counts[submission]
 				votes_counts[submission] += 1
-			else 
+			else
 				votes_counts[submission] = 1
 			end
 		end
