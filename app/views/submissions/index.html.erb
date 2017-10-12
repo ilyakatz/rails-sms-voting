@@ -7,7 +7,11 @@
 			  <tr>
 			<%end%>
 			<td>
-				<%= s.identifier %> : <%= s.name %><br>
+				<span class="number">
+					<%= s.identifier %>
+				</span>
+					- <%= s.name %>
+					<br/>
 			</td>
 			<% if s.id % 2 == 0 %>
 			  </tr>
