@@ -1,0 +1,50 @@
+<head>
+	<%= javascript_include_tag 'chartist' %>
+</head>
+
+<div class="header">
+	<div class="left">
+		<%= image_tag "http://execonlinenew.wpengine.com/wp-content/uploads/2017/04/EXO_logo_footer_320.png" %>
+	</div>
+	<div class="right">
+	</div>
+	<div class="clear"></div>
+</div>
+
+<h1>Text the team number to (646) 760-6352!</h1>
+
+
+
+<div class="chart-wrapper" >
+	<div class="ct-chart ct-golden-section"style="height:500px"></div>
+</div>
+
+<script>
+
+function drawResults (data) {
+	options = {
+		axisY: {
+			labelInterpolationFnc: function (value) {
+				return value === Math.floor(value) ? value : null;
+			}
+		}
+	};
+
+	new Chartist.Bar('.ct-chart', data, options).on('draw', function(drawData) {
+		if(drawData.type === 'bar') {
+			drawData.element.attr({
+				style: 'stroke-width: 30px; stroke: RGB(99,2,157);'
+			});
+		};
+	});
+}
+
+function getVoteAndDraw(){
+	console.log("Getting votes")
+	$.get('/votes', drawResults);
+}
+$(function() {
+	 getVoteAndDraw();
+	 setInterval(getVoteAndDraw, 5000);
+});
+</script>
