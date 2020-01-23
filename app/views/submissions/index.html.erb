@@ -1,21 +1,19 @@
-<h1>Text the team number to (415) 993-8081!</h1>
+<h1>Text the team number to (646) 760-6352!</h1>
 
 <div id="submissions">
-	<table>
-		<% @submissions.each do |s| %>
-			<% if s.id % 2 == 1%>
-			  <tr>
-			<%end%>
-			<td>
-				<span class="number">
-					<%= s.identifier %>
-				</span>
-					- <%= s.name %>
-					<br/>
-			</td>
-			<% if s.id % 2 == 0 %>
-			  </tr>
-			<%end%>
-		<% end %>
-	</table>
+  <table>
+    <% @submissions.each do |s| %> <% if s.id % 2 == 1%>
+    <tr>
+      <%end%>
+      <td>
+        <span class="number">
+          <%= s.identifier %>
+        </span>
+        - <%= s.name %>
+        <br />
+      </td>
+      <% if s.id % 2 == 0 %>
+    </tr>
+    <%end%> <% end %>
+  </table>
 </div>
